@@ -143,5 +143,16 @@ namespace WindowsFormsApp1
             dealer_info di = new dealer_info(); 
             di.Show();
         }
+
+        private void addToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void purchaseProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            purchase_master pm = new purchase_master();
+            pm.Show();
+        }
     }
 }
