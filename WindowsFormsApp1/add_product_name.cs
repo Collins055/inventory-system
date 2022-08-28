@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
             da.Fill(dt);
             foreach(DataRow dr in dt.Rows)
             {
-                comboBox1.Items.Add(dr["units"].ToString());
+                comboBox1.Items.Add(dr["unit"].ToString());
             }
         }
 
@@ -95,7 +95,7 @@ namespace WindowsFormsApp1
             da2.Fill(dt2);
             foreach (DataRow dr2 in dt2.Rows)
             {
-                comboBox2.Items.Add(dr2["units"].ToString());
+                comboBox2.Items.Add(dr2["unit"].ToString());
             }
 
             SqlCommand cmd = con.CreateCommand();
