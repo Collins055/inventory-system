@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\inventory.mdf;Integrated Security=True");
         DataTable dt = new DataTable();
         int total = 0;
+        private object dr1;
+
         public sales()
         {
             InitializeComponent();
@@ -157,6 +159,12 @@ namespace WindowsFormsApp1
                 label10.Text = total.ToString();
 
             }
+
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -199,10 +207,21 @@ namespace WindowsFormsApp1
 
             foreach(DataRow dr in dt.Rows)
             {
+                int qty = 0;
+                string pname = "";
+
                 SqlCommand cmd3 = con.CreateCommand();
                 cmd3.CommandType = CommandType.Text;
                 cmd3.CommandText = "insert into order_item values (' " + orderid.ToString()+ " ',' " + dr["product"].ToString() + " ',' " + dr["price"].ToString() + " ',' " + dr["qty"].ToString() + " ', '" + dr["total"].ToString() +"')";
                 cmd3.ExecuteNonQuery();
+
+                qty = Convert.ToInt32(dr["qty"].ToString());
+                pname = dr["product"].ToString();
+
+                SqlCommand cmd6 = con.CreateCommand();
+                cmd6.CommandType = CommandType.Text;
+                cmd6.CommandText = "update stock set product_qty = product_qty-"+qty+" where product_name = ' " + pname.ToString()+"'";
+                cmd6.ExecuteNonQuery();
             }
             textBox1.Text = "";
             textBox2.Text = "";
@@ -212,6 +231,8 @@ namespace WindowsFormsApp1
             textBox6.Text = "";
             label10.Text = "";
 
+            dt.Clear();
+            dataGridView1.DataSource = dt;
             MessageBox.Show("record inserted successfully");
 
         }
