@@ -82,3 +82,4 @@ C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\obj\Debug\WindowsFo
 C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
 C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.purchase_master.resources
+C:\Users\User\source\repos\inventory-system\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.sales.resources
